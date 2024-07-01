@@ -474,8 +474,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('close-btn').addEventListener('click', function() {
         // Open the current page in a new window
         var newWindow = window.open(window.location.href, '_self');
-        // Close the new window
-        // newWindow.close();
+        
     });
 
     downloadButton.addEventListener('click', function() {
