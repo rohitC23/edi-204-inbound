@@ -92,26 +92,26 @@ function openTab(evt, tabName) {
     let url, formId;
     switch (tabName) {
         case 'General':
-            url = 'http://34.121.205.40/general';
+            url = 'http://34.121.205.40:1234/general';
             formId = 'feedbackFormGeneral';
             break;
         case 'Load':
-            url = 'http://34.121.205.40/load/references';
+            url = 'http://34.121.205.40:1234/load/references';
             formId = 'feedbackFormLoad';
             break;
         case 'Equipment':
-            url = 'http://34.121.205.40/equipment';
+            url = 'http://34.121.205.40:1234/equipment';
             formId = 'feedbackFormEquipment';
             break;
         case 'Stop':
-            url = 'http://34.121.205.40/stop';
+            url = 'http://34.121.205.40:1234/stop';
             formId = 'feedbackFormStop';
             break;
         case 'Summary':
             updateSummary();
             return; // Exit the function early as no form data needs to be fetched
         default:
-            url = 'http://34.121.205.40/general';
+            url = 'http://34.121.205.40:1234/general';
             formId = 'feedbackFormGeneral';
     }
     fetchAndPopulateForm(url, formId);
@@ -181,7 +181,7 @@ function saveSummaryToFile() {
     };
 
     // Send the summary data as a POST request
-    fetch('http://34.121.205.40/summary', {
+    fetch('http://34.121.205.40:1234/summary', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -206,24 +206,24 @@ function refreshAllForms() {
         let url, formId;
         switch (tabName) {
             case 'General':
-                url = 'http://34.121.205.40/general';
+                url = 'http://34.121.205.40:1234/general';
                 formId = 'feedbackFormGeneral';
                 break;
             case 'Load':
-                url = 'http://34.121.205.40/load/references';
+                url = 'http://34.121.205.40:1234/load/references';
                 formId = 'feedbackFormLoad';
                 break;
             case 'Equipment':
-                url = 'http://34.121.205.40/equipment';
+                url = 'http://34.121.205.40:1234/equipment';
                 formId = 'feedbackFormEquipment';
                 break;
             case 'Stop':
-                url = 'http://34.121.205.40/stop';
+                url = 'http://34.121.205.40:1234/stop';
                 formId = 'feedbackFormStop';
                 break;
             // Add more cases for other tabs as needed
             default:
-                url = 'http://34.121.205.40/general';
+                url = 'http://34.121.205.40:1234/general';
                 formId = 'feedbackFormGeneral';
         }
         fetchAndPopulateForm(url, formId);
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function() {
             formData.append('file', file);
 
             try {
-                const response = await fetch('http://34.121.205.40/upload/file', {
+                const response = await fetch('http://34.121.205.40:1234/upload/file', {
                     method: 'POST',
                     body: formData,
                 });
@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('continueDefaultTemplate').addEventListener('click', async function() {
         try {
-            const response = await fetch('http://34.121.205.40/default/file', {
+            const response = await fetch('http://34.121.205.40:1234/default/file', {
                 method: 'POST',
             });
 
